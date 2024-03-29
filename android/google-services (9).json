@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "805783463984",
+    "project_id": "chalo-app-e9604",
+    "storage_bucket": "chalo-app-e9604.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805783463984:android:a09ba23bf81b4ea32825f5",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1aG659gU81AD_qtuMG2hQfx9yfklQEMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

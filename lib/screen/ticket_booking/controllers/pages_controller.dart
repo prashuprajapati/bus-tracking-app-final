@@ -1,0 +1,84 @@
+import 'package:chaloapp/screen/ticket_booking/pages/search/search_page.dart';
+import 'package:chaloapp/screen/ticket_booking/pages/trips/trips_page.dart';
+import 'package:chaloapp/screen/ticket_booking/utils/consts.dart';
+import 'package:flutter/material.dart';
+
+class PagesController extends StatefulWidget {
+  const PagesController({super.key});
+
+  @override
+  _PagesControllerState createState() => _PagesControllerState();
+}
+
+class _PagesControllerState extends State<PagesController> {
+  final PageController _pageController = PageController(initialPage: 0);
+  int bottomNavigationIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PageView(
+        controller: _pageController,
+        children: [
+          SearchPage(),
+          TripsPage(),
+          Container(
+            child: Center(
+              child: Text('Messages'),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Text('Profile'),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 4,
+            )
+          ],
+        ),
+        child: BottomNavigationBar(
+          showUnselectedLabels: true,
+          selectedItemColor: veppoBlue,
+          unselectedItemColor: veppoLightGrey,
+          currentIndex: bottomNavigationIndex,
+          onTap: (index) {
+            setState(() {
+              _pageController.animateToPage(
+                index,
+                duration: Duration(milliseconds: 400),
+                curve: Curves.decelerate,
+              );
+              bottomNavigationIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              label: 'Search',
+              icon: Icon(Icons.search_rounded),
+            ),
+            BottomNavigationBarItem(
+              label: 'Trips',
+              icon: Icon(Icons.menu),
+            ),
+            BottomNavigationBarItem(
+              label: 'Messages',
+              icon: Icon(Icons.chat_outlined),
+            ),
+            BottomNavigationBarItem(
+              label: 'Profile',
+              icon: Icon(Icons.supervised_user_circle_sharp),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
